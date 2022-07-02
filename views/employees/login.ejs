@@ -1,0 +1,22 @@
+<%-include('../partials/header.html')%> 
+
+<%-include('./partials/back-button.html')%>
+  <% if (messages.error) { %>
+      <p class="alert alert-danger"><%- messages.error %></p>
+  <% } %>
+    <form class="container-sm mt-5" action="/login/emp_login" method="post">
+        <div class="form-outline mb-4">
+          <input type="text" id="form2Example1" class="form-control" name="emp_email" required/>
+          <label class="form-label" for="username">Email</label>
+        </div>
+        <div class="form-outline mb-4">
+          <input type="password" id="form2Example2" class="form-control" name="emp_password" required/>
+          <label class="form-label" for="form2Example2">Password</label>
+        <div class="row mb-4">
+          <div class="col">
+            <a href="#!">Forgot password?</a>
+          </div>
+        </div>
+        <input type="submit" class="btn btn-primary btn-block mb-4" value="Sign in">
+    </form>      
+<%-include('../partials/footer.html')%> 

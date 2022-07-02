@@ -1,0 +1,105 @@
+<%-include('partials/header.html')%> 
+
+    <div class="container-fluid">
+        <div class="bg-dark container-fluid p-2">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                  <!-- Container wrapper -->
+                <div class="container-fluid">
+                    <!-- Toggle button -->
+                    <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                      <i class="fas fa-bars"></i>
+                    </button>
+                
+                    <!-- Collapsible wrapper -->
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                      <!-- Navbar brand -->
+                      <a class="navbar-brand mt-2 mt-lg-0" href="#">
+                        <img src="https://mdbcdn.b-cdn.net/img/logo/mdb-transaprent-noshadows.webp" height="15" alt="MDB Logo" loading="lazy"/>
+                      </a>
+                      <!-- Left links -->
+                      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                          <a class="nav-link" href="#">Dashboard</a>
+                        </li>
+                        <li class="nav-item dropdown mt-2">
+                                <a href="#" class="d-flex align-items-center text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                                    emp
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
+                                    <li><a class="dropdown-item" href="/supervisor/employee_add">Add Employees</a></li>
+                                    <li><a class="dropdown-item" href="/supervisor/employees">View Employees</a></li>
+                                    <li><a class="dropdown-item" href="/supervisor/emp_work_hours">Work Hours</a></li>
+                                </ul>
+                        </li>
+                      </ul>
+                      <!-- Left links -->
+                    </div>
+                
+                    <!-- Right elements -->
+                    <div class="d-flex align-items-center">
+                      <!-- Avatar -->
+                        <div class="dropdown me-3">
+                            <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                                <img src="https://github.com/mdo.png" alt="hugenerd" width="30" height="30" class="rounded-circle">
+                                <span class="d-none d-sm-inline mx-1"><%= my_session.emp_fn %></span>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
+                                <!-- <li><a class="dropdown-item" href="#">Change Password</a></li> -->
+                                <li><a class="dropdown-item" href="/login/emplogout">Sign out</a></li>
+                            </ul>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Right elements -->
+                </div>
+                  <!-- Container wrapper -->
+                </nav>
+                <!-- Navbar -->
+            </div>
+            <div class="py-3">
+                <% if (messages.error) { %>
+                    <p class="alert alert-danger"><%- messages.error %></p>
+                <% } %> 
+                <% if (messages.success) { %>
+                    <p class="alert alert-success mt-4"><%- messages.success %></p>
+                <% } %>
+                <div class=" container text-center">
+                    <h3 class="text-center text-danger">Do You Want To Submit ?</h3>
+                    <form action="/supervisor/salary" method="post">
+                      <div class="row">
+                        <div class="form-outline mb-4 col">
+                          <input type="text" class="form-control" value="<%= emp.emp_id %>" name="emp_id" readonly/>
+                          <label class="form-label" for="emp_id">Employee ID</label>
+                        </div>
+                        <div class="form-outline mb-4 col">
+                          <input type="text" class="form-control" value="<%= emp.total_worked %>" name="total_hours"/>
+                          <label class="form-label" for="total_hours">Total Hours Worked per Cycle</label>
+                        </div>
+                        <div class="form-outline mb-4 col">
+                          <input type="text" class="form-control" value="<%= emp.total_overtime %>" name="overtime_hours"/>
+                          <label class="form-label" for="overtime_hours">Total OverTime</label>
+                        </div>
+                        <div class="form-group form-outline mb-4 col">
+                          <select class="select form-control" name="weeks">
+                              <% for( let i = 1; i < 53; i++ ) { %>
+                                <option value="Week <%= i %>"><%= i %></option>
+                              <% } %>
+                          </select>
+                          <span class="select-arrow"></span>
+                          <label class="form-label" for="weeks">Week</label>
+                        </div>
+                        <div class="col">
+                            <button type="submit" class="btn btn-danger btn-md">Submit</button>
+                        </div>
+                      </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div> 
+    
+<%-include('partials/footer.html')%> 
+
+
+
+
