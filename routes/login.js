@@ -114,10 +114,10 @@ router.post('/emp_login', (req, res) => {
 
 })
 
-// Logout Tour Admin
-router.get('/emp_logout', function (req, res) {
+// Logout Admin
+router.get('/', function (req, res) {
     req.session.destroy();
-    res.redirect('/login/employee');
+    res.redirect('/');
 });
 
 module.exports = router;

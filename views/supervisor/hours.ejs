@@ -45,7 +45,7 @@
                             </a>
                             <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
                                 <!-- <li><a class="dropdown-item" href="#">Change Password</a></li> -->
-                                <li><a class="dropdown-item" href="/login/emplogout">Sign out</a></li>
+                                <li><a class="dropdown-item" href="/">Sign out</a></li>
                             </ul>
                         </div>
                       </div>
@@ -65,7 +65,7 @@
                 <% } %>
                 <div class="container-fluid">
 
-                    <a href="/supervisor/summary/<%= emp[0].emp_id %>" class="btn btn-primary float-end btn-md">Submit</a>
+                    <a href="../supervisor/add/summary.ejs emp[0].emp_id %>" class="btn btn-primary float-end btn-md">Submit</a>
                     
                     <table class="table table-striped">
                         <thead style="font-size: 1.6vw;">
@@ -120,4 +120,4 @@
         </div>
     </div> 
 
-<%-include('partials/footer.html')%> 
+<%-include('../partials/footer.html')%> 

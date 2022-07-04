@@ -175,7 +175,7 @@ router.get('/emp_work_hours/:emp_id', (req, res) => {
         conn.query('SELECT truncate((TIMEDIFF(wh.end_time, wh.start_time)/10000), 2) AS hours, emp.emp_fn, emp.emp_ln, emp.id AS emp_id, wh.*, wh.id AS work_id, dept.*, dept.id AS dept_id FROM employees emp, work_hours wh, departments dept WHERE emp.emp_dept = dept.id AND wh.emp_id = emp.id AND dept.dept_name = ? AND wh.work_date BETWEEN CURDATE()-5 AND CURDATE() - INTERVAL 1 day AND wh.emp_id =' + req.params.emp_id, department,(err, results) => {
             if(err) {
                 console.log(err)
-                res.render('supervisor/hours', {
+                res.render('/views/supervisor/hours', {
                     title : 'Work Hours',
                     emp : '',
                     my_session : req.session

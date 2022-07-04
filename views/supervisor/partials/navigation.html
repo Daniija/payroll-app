@@ -1,0 +1,18 @@
+<nav class="navbar navbar-expand-lg bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#"><%= my_session.position %></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-link active" aria-current="page" href="/">Dashboard</a>
+          <a class="nav-link" href="/supervisor/employees">View Employee</a>
+          <a class="nav-link" href="/supervisor/employee_add">Add Employee</a>
+          <a class="nav-link" href="/supervisor/emp_work_hours">Work Hours</a>
+          <a class="nav-link" href="/login/super_logout">Sign Out</a>
+        </div>
+      </div>
+      <span class="d-none d-sm-inline mx-1"><%= my_session.emp_fn %></span>
+    </div>
+  </nav>
